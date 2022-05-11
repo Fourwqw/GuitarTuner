@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar tuner</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital@1&display=swap" rel="stylesheet">
+
+</head>
+<body >
+
+    <header class="header">
+        <div class="logo"> 
+            <div class="spike-01">
+                <div class="logo-content">
+                    <img src="images/guitar-main01.png" alt="guitar-icon" width="70px" height="70px"style="padding-top: 5px;">
+                    <div class="logo-text">
+                        GuitarTuner
+                    </div>
+                </div>
+                <div class="spike-02">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main-content" >
+        <div class="menu-section">
+            <nav>
+                <div class="top-nav">
+                    <a class="active" href="index.html"> TUNE </a>
+                    <a href="about.html"> ABOUT </a>
+                </div>
+            </nav>
+        </div>
+        <div class="tuner__container">
+            <canvas id="myCanvas"  ></canvas>
+        </div>
+        <div class="buttons__container">
+            <button class="mic-button">
+                <img src="images/mic.png" alt="mic-icon" width="15px" height="18px">
+            </button>
+            <button class="start-button">
+                START
+            </button>
+        </div>
+        <div class="instruction__container">
+            <hr>
+            <h2 style=" text-align: center; margin: 30px">Инструкция по настройке</h2>
+
+            <div class="instruction-text">
+
+                <p>
+                    Выполните следующие действия:
+                </p>
+                <ol>
+                    <li>
+                        <strong>Активируйте</strong> микрофон на кнопку  <img src="images/mic.png" alt="mic-icon" width="15px" height="18px" style = "padding-left: 3px;">.
+                    </li>
+                    <li>
+                        Предоставьте <strong> доступ </strong> к вашему микрофону для браузера.
+                        После активации микрофона на странице, появится окно 
+                        о предоставлени прав на использование микрофона. Вам необходимо <strong> разрешить </strong> использование микрофона
+                        для работы приложения.  
+                    </li>
+                    <li>
+                        <strong>Проверка звука</strong>, для этого запустите приложение на конпку <strong>"START"</strong>.
+                        Поднесите гитару к микрофону и ударьте по струнам, если на рабочем индикаторе появилась амплитуда звука,
+                        то звук поступает и можно приступать к настройке. 
+                    </li>
+                    <li>
+                        <strong>Настройка первой струны</strong>, нужно добиться, чтобы самая сильная-высокая вершина амплитуды ноты
+                        сопоставилась с правильной частотой на фортепьианной шкале. Обозначения струн-нот предоставлены в <strong ><a href="about.html" style="text-decoration: none;"> справочнике </a></strong>.          
+                    </li>
+                    <li>
+                        <strong>Настройка и проверка</strong>, по аналогии настройки первой струны, настройте остальные 5 струн,
+                        после чего сверте звучание струн с предоставленными ниже примерами.
+                    </li>
+                </ol>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="scripts/tuner.js">
+    </script>    
+</body>
+</html>
