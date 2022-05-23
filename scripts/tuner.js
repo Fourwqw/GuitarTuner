@@ -174,7 +174,7 @@ function init()
         alert('Web Audio API is not supported in this browser');
     }
 
-    // Check if there is microphone input.
+    // проверка подключен ли микрофон
 
     try 
     {
@@ -189,7 +189,7 @@ function init()
         alert("getUserMedia() is not supported in your browser");
     }
 
-    // Create a pcm processing "node" for the filter graph.
+    // Создание PCM процесса для фильтра 
     var bufferSize = 4096;
     var myPCMProcessingNode = audioContext.createScriptProcessor(bufferSize, 1, 1);
     myPCMProcessingNode.onaudioprocess = function(e) 
@@ -211,7 +211,6 @@ function init()
         alert("Error in getUserMedia: " + e);
     };  
     // Запрос разрешения на микрофон с помощью кнопки
-    // Get access to the microphone and start pumping data through the  graph. 
     document.querySelector(".mic-button").addEventListener("click", function(){
         navigator.getUserMedia({audio: true}, function(stream) 
         {
