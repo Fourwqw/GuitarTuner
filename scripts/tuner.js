@@ -23,12 +23,14 @@ function Goertzel(buffer, sampleRate, freq)
 
     var sprev = 0;
     var sprev2 = 0;
-    for(var n=0;n<buffer.length;n++)
+
+    for(var n=0; n < buffer.length; n++)
     {
         var s = buffer[n] + coeff * sprev - sprev2;
         sprev2 = sprev;
         sprev = s;
     }
+
     var power = sprev2 * sprev2 + sprev * sprev - coeff * sprev * sprev2;
     
     return power;
@@ -47,7 +49,7 @@ function drawScope(buffer, sampleRate)
 
     for(var i = 0; i < bufferLength; i++) 
     {
-        var v = buffer[i];// / 128.0;
+        var v = buffer[i]; // / 128.0;
         var y = v * myCanvas.height/2;
         y += myCanvas.height/2;
         //y += myCanvas.height/2;
@@ -60,38 +62,9 @@ function drawScope(buffer, sampleRate)
 
         x += sliceWidth;
     }
-
     canvasCtx.lineTo(myCanvas.width, myCanvas.height/2);
     canvasCtx.stroke();
 }
-
-function drawGuitar(buffer, sampleRate) 
-{
-    canvasCtx.beginPath();
-    for(var s=0;s<6;s++)
-    {
-        var x = (myCanvas.width / 7 )*(s+1);
-        canvasCtx.moveTo(x, 300);
-        canvasCtx.lineTo(x, 0);
-    }
-    canvasCtx.stroke();
-
-    var freqs = [ 329, 246,196,146,110,82];
-    canvasCtx.beginPath();
-    
-    for(var s=0;s<6;s++)
-    {
-        var x = (myCanvas.width/7)*(s+1);
-        for(var f=-10;f<10;f++)
-        {
-            var power = Math.sqrt(Goertzel(buffer, sampleRate, freqs[s] + f*2));
-            
-            canvasCtx.moveTo(x+f*3, 300);
-            canvasCtx.lineTo(x+f*3, 300-power);
-        }
-    }
-    canvasCtx.stroke();
-};
 
 var noteName = [  'C', 'C#', 'D','D#', 'E', 'F', 'F#', 'G', 'G#',  'A','A#', 'B'];
 function NoteNameFromNote(note)
@@ -103,7 +76,7 @@ function NoteNameFromNote(note)
 
 function FreqFromNote(note)
 {
-    return 440.0*Math.pow(2, (note-49)/12);
+    return 440.0 * Math.pow(2, (note-49) / 12);
 }
 
 function DrawPiano(buffer, sampleRate) 
@@ -120,9 +93,9 @@ function DrawPiano(buffer, sampleRate)
     {
         note = noteNumber[i]
         var x = ( myCanvas.width / 66 ) * (note+1); // 88 66
-        canvasCtx.moveTo(x, 270);
+        canvasCtx.moveTo(x, Math.floor(myCanvas.height * 90 / 100));
         canvasCtx.lineTo(x, 0);
-        canvasCtx.fillText(NoteNameFromNote(note),x,290);
+        canvasCtx.fillText(NoteNameFromNote(note), x, Math.floor(myCanvas.height * 96 / 100 ));
     }       
     canvasCtx.stroke();    
     
@@ -134,19 +107,18 @@ function DrawPiano(buffer, sampleRate)
         
         var power = Math.sqrt(Goertzel(buffer, sampleRate, FreqFromNote(note)));
         
-        canvasCtx.moveTo(x, 270);
-        canvasCtx.lineTo(x, 270-power);
+        canvasCtx.moveTo(x, Math.floor(myCanvas.height * 90 / 100));
+        canvasCtx.lineTo(x, Math.floor(myCanvas.height* 90 / 100) - power);
     }
-    
-    canvasCtx.moveTo(0, 271);
-    canvasCtx.lineTo(600, 271);
+    canvasCtx.moveTo(0, Math.floor(myCanvas.height * 90.3 / 100 ));
+    canvasCtx.lineTo(myCanvas.width, Math.floor(myCanvas.height * 90.3 / 100 ));
     
     canvasCtx.stroke();
 }
 
 function draw(buffer, sampleRate) 
 {
-    canvasCtx.clearRect(0, 0, 600, 300);
+    canvasCtx.clearRect(0, 0, myCanvas.width, myCanvas.height);
     canvasCtx.fillStyle = 'rgb(100, 100, 100)';
     canvasCtx.fillRect(0, 0, canvasCtx.width, canvasCtx.height);
 
@@ -161,7 +133,7 @@ function init()
     canvasCtx = myCanvas.getContext('2d');    
     myCanvas.height = myCanvas.clientHeight
     myCanvas.width = myCanvas.clientWidth
-    console.log(myCanvas.clientHeight + " " + myCanvas.clientWidth)
+
     var bufferSize = 4096;
   
     try 
@@ -174,7 +146,7 @@ function init()
         alert('Web Audio API is not supported in this browser');
     }
 
-    // проверка подключен ли микрофон
+    // Проверка подключенного микрофона
 
     try 
     {
@@ -189,7 +161,7 @@ function init()
         alert("getUserMedia() is not supported in your browser");
     }
 
-    // Создание PCM процесса для фильтра 
+    // Создание PCM процесса node для графа фильтраCreate a pcm processing "node" for the filter graph.
     var bufferSize = 4096;
     var myPCMProcessingNode = audioContext.createScriptProcessor(bufferSize, 1, 1);
     myPCMProcessingNode.onaudioprocess = function(e) 
@@ -211,6 +183,7 @@ function init()
         alert("Error in getUserMedia: " + e);
     };  
     // Запрос разрешения на микрофон с помощью кнопки
+    // Get access to the microphone and start pumping data through the  graph. 
     document.querySelector(".mic-button").addEventListener("click", function(){
         navigator.getUserMedia({audio: true}, function(stream) 
         {

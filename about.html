@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guitar tuner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +19,7 @@
                 <div class="logo-content">
                     <img src="images/guitar-main01.png" alt="guitar-icon" width="80px" height="80px"style="margin: 5px 0px;">
                     <div class="logo-text">
-                        GuitarTuner
+                        TUNER <small style="list-style: none; font-size: 20px;">of</small>  <br> GUITAR
                     </div>
                 </div>
                 <div class="spike-02">
@@ -40,20 +41,27 @@
             <h2 style=" text-align: center; margin: 20px">Справочник</h2>
 
             <div class="manual-text">
-
-                <div class="notes-audio"> 
-                    <p>
-                        1 струна - нота <strong>E</strong> (Ми) <br> <audio controls><source type="audio/mpeg" src ="https://pereborom.ru/wp-content/uploads/2018/04/1-struna-Zvuki-strun-klassicheskoj-gitary.mp3?_=7"/></audio> <br>
-                        2 струна - нота <strong>B</strong> (Си) <br> <audio controls><source type="audio/mpeg" src =" https://pereborom.ru/wp-content/uploads/2018/04/2-struna-Zvuki-strun-klassicheskoj-gitary.mp3?_=7"/></audio> <br>
-                        3 струна - нота <strong>G</strong> (Соль) <br> <audio controls><source type="audio/mpeg" src =" https://pereborom.ru/wp-content/uploads/2018/04/3-struna-Zvuki-strun-klassicheskoj-gitary.mp3?_=7"/></audio> <br>
-                        4 струна - нота <strong>D</strong> (Ре) <br> <audio controls><source type="audio/mpeg" src =" https://pereborom.ru/wp-content/uploads/2018/04/4-struna-Zvuki-strun-klassicheskoj-gitary.mp3?_=7"/></audio> <br>
-                        5 струна - нота <strong>A</strong> (Ля) <br> <audio controls><source type="audio/mpeg" src =" https://pereborom.ru/wp-content/uploads/2018/04/5-struna-Zvuki-strun-klassicheskoj-gitary.mp3?_=7"/></audio> <br>
-                        6 струна - нота <strong>E</strong> (Ми) <br> <audio controls><source type="audio/mpeg" src =" https://pereborom.ru/wp-content/uploads/2018/04/6-struna-Zvuki-strun-klassicheskoj-gitary.mp3?_=7"/></audio> <br>
-                    </p>
-                </div>
                 <div class="notes-img">
-                    <img src="images/notesGuide.jpg" alt="notes-img" style="border-radius: 30px;">    
+                    <img class="notes-img" src="images/notesGuide.jpg" alt="notes-img" style="border-radius: 30px;">               
                 </div>
+                
+                <div class="notes-audio"> 
+                    <div class="notes-audio-1">
+                        <p>
+                            1 струна - нота <strong>E</strong> (Ми) <br> <audio controls><source type="audio/mpeg" src ="https://pereborom.ru/wp-content/uploads/2018/04/1-struna-Zvuki-strun-klassicheskoj-gitary.mp3?_=7"/></audio> <br>
+                            2 струна - нота <strong>B</strong> (Си) <br> <audio controls><source type="audio/mpeg" src =" https://pereborom.ru/wp-content/uploads/2018/04/2-struna-Zvuki-strun-klassicheskoj-gitary.mp3?_=7"/></audio> <br>
+                            3 струна - нота <strong>G</strong> (Соль) <br> <audio controls><source type="audio/mpeg" src =" https://pereborom.ru/wp-content/uploads/2018/04/3-struna-Zvuki-strun-klassicheskoj-gitary.mp3?_=7"/></audio>
+                        </p>
+                    </div>
+                    <div class="notes-audio-2">
+                        <p>
+                            4 струна - нота <strong>D</strong> (Ре) <br> <audio controls><source type="audio/mpeg" src =" https://pereborom.ru/wp-content/uploads/2018/04/4-struna-Zvuki-strun-klassicheskoj-gitary.mp3?_=7"/></audio> <br>
+                            5 струна - нота <strong>A</strong> (Ля) <br> <audio controls><source type="audio/mpeg" src =" https://pereborom.ru/wp-content/uploads/2018/04/5-struna-Zvuki-strun-klassicheskoj-gitary.mp3?_=7"/></audio> <br>
+                            6 струна - нота <strong>E</strong> (Ми) <br> <audio controls><source type="audio/mpeg" src =" https://pereborom.ru/wp-content/uploads/2018/04/6-struna-Zvuki-strun-klassicheskoj-gitary.mp3?_=7"/></audio> <br>
+                        </p>  
+                    </div>                      
+                </div>
+
             </div>
             <hr style = "margin: 10px">
             <h2 style=" text-align: center; margin: 30px">Дополнительные сведения по работе с приложением</h2>
@@ -75,7 +83,9 @@
         </div>
             
     </main>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+        
+    </script>
 
 </body>
 </html>
